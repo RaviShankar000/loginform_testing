@@ -1,0 +1,24 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "feature_test.js",
+  "scripts": {
+    "test": "node functional_tests.js",
+    "test:functional": "node functional_tests.js",
+    "test:boundary": "node boundary_tests.js",
+    "test:security": "node security_tests.js",
+    "test:selenium": "node feature_test.js",
+    "test:all": "npm run test:functional && npm run test:boundary && npm run test:security"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.13.5",
+    "chai": "^6.2.2",
+    "mocha": "^11.7.5",
+    "selenium-webdriver": "^4.40.0"
+  }
+}
