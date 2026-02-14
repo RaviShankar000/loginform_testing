@@ -147,7 +147,10 @@ function handleErrors(data, elementId) {
 // Dashboard Logic
 async function checkAuth() {
     const token = localStorage.getItem('token');
-    if (!token) return;
+    if (!token) {
+        showLoading(false);
+        return;
+    }
 
     showLoading(true);
     try {
@@ -162,6 +165,7 @@ async function checkAuth() {
         }
     } catch (err) {
         console.error(err);
+        localStorage.removeItem('token');
     } finally {
         showLoading(false);
     }
