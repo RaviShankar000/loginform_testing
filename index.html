@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Login System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/loginform_testing/assets/index-Dxq8azia.js"></script>
+  <link rel="stylesheet" crossorigin href="/loginform_testing/assets/index-D6_MTo_4.css">
+</head>
+
+<body>
+  <div class="container" id="container">
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading-overlay hidden">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- Sign Up Form -->
+    <div class="form-container sign-up-container">
+      <form id="registerForm">
+        <h1>Create Account</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your email for registration</span>
+
+        <div class="input-group">
+          <input type="text" id="reg-username" placeholder="Username (Min 3 chars)" required />
+          <i class="fas fa-user"></i>
+        </div>
+
+        <div class="input-group">
+          <input type="email" id="reg-email" placeholder="Email" required />
+          <i class="fas fa-envelope"></i>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="reg-password"
+            placeholder="Password (Min 8 chars, 1 Upper, 1 Lower, 1 Num, 1 Special)" required />
+          <i class="fas fa-lock"></i>
+          <i class="fas fa-eye-slash toggle-password" data-target="reg-password"></i>
+        </div>
+
+        <div class="password-strength">
+          <div class="strength-bar" id="strength-bar"></div>
+          <small id="strength-text">Password Strength</small>
+        </div>
+
+        <button type="submit">Sign Up</button>
+        <div class="error-msg" id="reg-error"></div>
+      </form>
+    </div>
+
+    <!-- Sign In Form -->
+    <div class="form-container sign-in-container">
+      <form id="loginForm">
+        <h1>Sign in</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your account</span>
+
+        <div class="input-group">
+          <input type="text" id="login-username" placeholder="Username or Email" required />
+          <i class="fas fa-user"></i>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="login-password" placeholder="Password" required />
+          <i class="fas fa-lock"></i>
+          <i class="fas fa-eye-slash toggle-password" data-target="login-password"></i>
+        </div>
+
+        <a href="#" id="forgot-password-link">Forgot your password?</a>
+        <button type="submit">Sign In</button>
+        <div class="error-msg" id="login-error"></div>
+      </form>
+    </div>
+
+    <!-- Overlay for Animation -->
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <button class="ghost" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your personal details and start journey with us</p>
+          <button class="ghost" id="signUp">Sign Up</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Dashboard (Hidden by default) -->
+  <div id="dashboard" class="dashboard-container hidden">
+    <nav>
+      <h2>SecureSystem</h2>
+      <button id="logoutBtn">Logout</button>
+    </nav>
+    <div class="content">
+      <h1>Welcome, <span id="user-name">User</span>!</h1>
+      <div class="card">
+        <h3>Your Profile</h3>
+        <p><strong>Email:</strong> <span id="user-email"></span></p>
+        <p><strong>Last Login:</strong> <span id="user-last-login">Now</span></p>
+        <p><strong>Account Status:</strong> Active</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div id="forgot-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Reset Password</h2>
+      <p>Enter your email to receive a reset link.</p>
+      <form id="forgotForm">
+        <input type="email" id="forgot-email" placeholder="Enter your email" required />
+        <button type="submit">Send Reset Link</button>
+      </form>
+      <div id="forgot-msg"></div>
+    </div>
+  </div>
+
+</body>
+
+</html>
