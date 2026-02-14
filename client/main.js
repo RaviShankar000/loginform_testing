@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api/auth';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api/auth';
 
 const container = document.getElementById('container');
 const signUpButton = document.getElementById('signUp');
@@ -147,10 +147,7 @@ function handleErrors(data, elementId) {
 // Dashboard Logic
 async function checkAuth() {
     const token = localStorage.getItem('token');
-    if (!token) {
-        showLoading(false);
-        return;
-    }
+    if (!token) return;
 
     showLoading(true);
     try {
@@ -165,7 +162,6 @@ async function checkAuth() {
         }
     } catch (err) {
         console.error(err);
-        localStorage.removeItem('token');
     } finally {
         showLoading(false);
     }
